@@ -20,14 +20,17 @@ let port = 5500;
 
 app.get("/", function (req, res) {
     res.send("This is Home Page");
+    res.end();
 });
 
 app.get("/about", function (req, res) {
     res.send("This is About Page");
+    res.end();
 });
 
 app.get("/contact", function (req, res) {
     res.send("This is Contact Page");
+    res.end();
 });
 
 app.get("/file-write", function (req, res) {
@@ -38,12 +41,14 @@ app.get("/file-write", function (req, res) {
             console.log("error while writting in the file");
         } else {
             res.sendStatus(201);
+            res.end();
         }
     })
 });
 
 app.post('/upload', uploadFile.single('filename'), function (req, res) {
     res.sendStatus(200);
+    res.end();
 })
 
 app.listen(port, function () {
